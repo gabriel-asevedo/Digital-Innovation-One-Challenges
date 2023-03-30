@@ -2,36 +2,15 @@ package entities;
 
 import java.time.LocalDate;
 
-public class Mentoring extends Course {
+public class Mentoring extends Content {
 
-	private String title;
-	private String description;
 	private LocalDate date;
 
 	public Mentoring() {
-
 	}
-
+	
 	public Mentoring(String title, String description, LocalDate date) {
-		this.title = title;
-		this.description = description;
-		this.date = date;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
+		super(title, description);
 	}
 
 	public LocalDate getDate() {
@@ -43,10 +22,15 @@ public class Mentoring extends Course {
 	}
 
 	@Override
+	public double calculateXp() {
+		return XP_STANDART + 20d;
+	}
+
+	@Override
 	public String toString() {
-		return "Mentoring\nTitle: " + title 
-				+ "\nDescription: " + description 
-				+ "\nDate :" + date;
+		return "Mentoring{Title: " + title 
+				+ ",  Description: " + description 
+				+ ",  Date :" + date;
 	}
 
 }
